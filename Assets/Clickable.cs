@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class Clickable : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] protected Material baseMaterial, highlightMaterial;
+    protected MeshRenderer meshRenderer;
+
+    virtual protected void Start()
     {
-        
+        meshRenderer = GetComponent<MeshRenderer>();
     }
 
-    // Update is called once per frame
-    void Update()
+    protected virtual void OnMouseEnter()
     {
-        
+        meshRenderer.material = highlightMaterial;
+    }
+
+    protected virtual void OnMouseExit()
+    {
+        meshRenderer.material = baseMaterial;
     }
 }
