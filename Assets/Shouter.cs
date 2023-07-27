@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class Shouter : Clickable
 {
+    public static string playerName { private get; set; }
     protected override void OnMouseEnter()
     {
         base.OnMouseEnter();
-        Debug.Log("Oh, hi MARK");
+        Debug.Log("Oh, hi " + playerName);
     }
 }
